@@ -35,10 +35,10 @@ Overall, the 404 error page is an important part of the website, as it helps to 
 
 ## Live Demo
 
-You can check out the live version of this personal portfolio website by visiting [https://jpxoi.com](https://jpxoi.com). The website is hosted on Netlify, which provides a fast and reliable platform for deploying static websites.
+You can check out the live version of this personal portfolio website by visiting [premkalauni.com.np](premkalauni.com.np). The website is hosted on Netlify, which provides a fast and reliable platform for deploying static websites.
 
 Clicking on the link will take you to the live version of the website, where you can explore all of the features and functionality that are included. You can navigate between the different sections of the website using the navigation menu, and view the various projects and pieces of work that are showcased in the portfolio section.
 
 Additionally, there is a status badge available that displays the current status of the website. This badge is located below, and provides users with an easy way to see if the website is currently up and running.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8345494c-4d35-41e0-ab75-d506314c90b8/deploy-status)](https://app.netlify.com/sites/jpxoi/deploys)
+
