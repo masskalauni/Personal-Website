@@ -87,7 +87,8 @@
             <div class="nav__menu_desktop">
                 <ul class="nav__list_desktop">
                     <li class="nav__item_desktop">
-                        <a href="#home" class="nav__link " alt="home button">
+                       
+                        <a href="#home" class=" nav__link " alt="home button">
                             Home
                         </a>
                     </li>
@@ -120,12 +121,14 @@
                             Contact
                         </a>
                     </li>
-
+                  
                 </ul>
+             
             </div>
 
             <!-- Theme Change Button -->
             <i class="bx bx-moon change-theme" id="theme-button"></i>
+           
         </nav>
     </header>
 
@@ -177,7 +180,6 @@
 
             </div>
         </section>
-
         <!--=============== ABOUT ===============-->
         <section class="about section" id="about">
             <span class="section__subtitle">My Intro</span>
@@ -770,14 +772,19 @@
                 &#169; 2024 Mass Kalauni. All Rights Reserved.
             </span>
         </div>
-        <button class="app__earphone" onclick="toggleSound()">
+      <div class="container">
+        <a href="#home" class="scrollup show-scroll" id="scroll-up">
+            <i class="fa-solid fa-arrow-up scroll-up-icon"></i>
+          </a>
+          <button class="app__earphone" onclick="toggleSound()">
             <img src="assets/img/favicon/Pk_files/earphone sound off.svg" alt="Earphone" class="app__earphone-img" id="earphone-img">
             <span class="app__earphone-span" id="earphone-text">Sound Off</span>
             <div class="app__earphone-tooltip" id="earphone-tooltip"></div>
             <audio autoplay="" class="app__audio" id="audio">
-                <source src="assets/audio/lofi-study-112191.mp3" type="audio/mp3">
+                <!-- <source src="assets/audio/lofi-study-112191.mp3" type="audio/mp3"> -->
             </audio>
         </button>
+    </div>
     </footer>
 
     <!--=============== SCROLLREVEAL ===============-->

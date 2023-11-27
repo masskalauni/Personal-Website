@@ -67,6 +67,8 @@
         <div class="app__earphone-tooltip" id="earphone-tooltip"></div>
         <audio autoplay="" class="app__audio" id="audio" onended="audioEnded()"></audio>
     </button>
+
+    
 </body>
 <script>
     
@@ -99,4 +101,129 @@
         earphoneTooltip.textContent = ' sound on';
     }
 </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-Speech Example</title>
+    <style>
+        /* Add your styles here */
+    </style>
+</head>
+<body>
+
+    <p>Select some text in this paragraph to hear it spoken.</p>
+
+    <script>
+        document.addEventListener('selectionchange', handleSelectionChange);
+
+        let utterance = new SpeechSynthesisUtterance();
+
+        // List available voices
+        speechSynthesis.onvoiceschanged = function() {
+            const voices = speechSynthesis.getVoices();
+
+            // Find a female voice
+            const femaleVoice = voices.find(voice => voice.name.toLowerCase().includes('female'));
+
+            // Set the voice to the first available female voice, or use the first available voice
+            utterance.voice = femaleVoice || voices[0];
+            
+            // Adjust the rate for a natural pace (1 is the default, lower values are slower, higher values are faster)
+            utterance.rate = 1.1;
+        };
+
+        function handleSelectionChange() {
+            const selection = window.getSelection().toString().trim();
+
+            if (selection) {
+                speakText(selection);
+            }
+        }
+
+        function speakText(text) {
+            // Cancel any previous speech to avoid interruptions
+            speechSynthesis.cancel();
+
+            utterance.text = text;
+            speechSynthesis.speak(utterance);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Speech Recognition</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="content">The recognized words will be highlighted.</p>
+
+    <script>
+        const contentElement = document.getElementById('content');
+        const recognition = new webkitSpeechRecognition() || SpeechRecognition();
+        recognition.lang = 'en-US';
+
+        // Check if the user has already granted permission
+        const hasPermission = localStorage.getItem('speechRecognitionPermission') === 'granted';
+
+        if (hasPermission) {
+            // If permission is granted, start speech recognition
+            recognition.start();
+        }
+
+        recognition.onresult = function(event) {
+            const transcript = event.results[0][0].transcript;
+            console.log('Recognized:', transcript);
+
+            // Highlight the recognized words
+            highlightRecognizedWords(transcript);
+        };
+
+        recognition.onend = function() {
+            console.log('Speech recognition ended');
+            // Restart speech recognition
+            recognition.start();
+        };
+
+        function highlightRecognizedWords(transcript) {
+            const words = transcript.split(' ');
+
+            // Remove previous highlights
+            contentElement.innerHTML = contentElement.textContent;
+
+            // Iterate through words and highlight each occurrence
+            words.forEach(word => {
+                const regex = new RegExp(`\\b${word}\\b`, 'gi');
+                contentElement.innerHTML = contentElement.innerHTML.replace(regex, `<span class="highlight">${word}</span>`);
+            });
+        }
+
+        // Request permission on user interaction
+        document.addEventListener('click', () => {
+            if (!hasPermission) {
+                recognition.start();
+                localStorage.setItem('speechRecognitionPermission', 'granted');
+            }
+        });
+    </script>
+</body>
 </html>

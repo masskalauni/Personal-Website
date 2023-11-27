@@ -125,7 +125,7 @@ themeButton.addEventListener("click", () => {
     // Add or remove the dark / icon theme
     document.body.classList.toggle(lightTheme)
     themeButton.classList.toggle(iconTheme)
-    // We save the theme and the current icon that the user chose
+    // We save the theme and the current icon that the user chhose
     localStorage.setItem("selected-theme", getCurrentTheme())
     localStorage.setItem("selected-icon", getCurrentIcon())
 })
@@ -260,4 +260,50 @@ function toggleSound() {
         earphoneText.textContent = 'Sound Off';
         earphoneTooltip.textContent = ' sound on';
     }
+}
+
+// SHOW SCROLL TOP
+function scrollUp() {
+  const scrollUp = document.getElementById("scroll-up");
+  // When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
+  if (this.scrollY >= 560) scrollUp.classList.add("show-scroll");
+  else scrollUp.classList.remove("show-scroll");
+}
+window.addEventListener("scroll", scrollUp);
+
+
+
+//select to speak 
+document.addEventListener('selectionchange', handleSelectionChange);
+
+let utterance = new SpeechSynthesisUtterance();
+
+// List available voices
+speechSynthesis.onvoiceschanged = function() {
+    const voices = speechSynthesis.getVoices();
+
+    // Find a female voice
+    const femaleVoice = voices.find(voice => voice.name.toLowerCase().includes('female'));
+
+    // Set the voice to the first available female voice, or use the first available voice
+    utterance.voice = femaleVoice || voices[0];
+    
+    // Adjust the rate for a natural pace (1 is the default, lower values are slower, higher values are faster)
+    utterance.rate = 1.1;
+};
+
+function handleSelectionChange() {
+    const selection = window.getSelection().toString().trim();
+
+    if (selection) {
+        speakText(selection);
+    }
+}
+
+function speakText(text) {
+    // Cancel any previous speech to avoid interruptions
+    speechSynthesis.cancel();
+
+    utterance.text = text;
+    speechSynthesis.speak(utterance);
 }
