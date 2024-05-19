@@ -18,7 +18,7 @@
   --lig: 61%;
   --second-hue: 219;
   
-  --first-color: hsl(var(--first-hue), var(--sat), var(--lig));
+  --first-color: #007bff;
   --first-color-alt: hsl(var(--first-hue), var(--sat), 71%); /* -4% */
   --title-color: hsl(var(--second-hue), 15%, 95%);
   --text-color: hsl(var(--second-hue), 8%, 75%);
@@ -588,6 +588,15 @@ body.light-theme {
 
 .about__data{
   text-align: center;
+  
+}
+.learn_more_btn{
+  color:#007bff;
+  font-size:12px;
+}
+.learn_more_btn:hover{
+  text-decoration: underline;
+
 }
 
 .about__info {
@@ -595,22 +604,6 @@ body.light-theme {
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
   margin-bottom: 2rem;
-}
-
-.about__box {
-  background-color: var(--container-color);
-  border-radius: 0.75rem;
-  padding: 0.75rem 0.5rem;
-}
-
-.about__icon {
-  font-size: 1.5rem;
-  color: var(--first-color);
-  margin-bottom: 0.5rem;
-}
-
-.about__title {
-  font-size: var(--small-font-size);
 }
 
 .about__subtitle {
@@ -621,15 +614,7 @@ body.light-theme {
   margin-bottom: 2rem;
 }
 
-/* Animate About Picture */
-@keyframes floaty {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-15px);
-  }
-}
+
 
 /*=============== SKILLS ===============*/
 .skills__container {
@@ -885,7 +870,7 @@ a {
   font-size:1rem;
   padding: 0;
   background-color: transparent;
-  color: var(--first-color-alt);
+  color: var(--first-color);
 }
 
 .button-link:hover {
@@ -1545,7 +1530,7 @@ a {
   }
 
   .about__container {
-    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: repeat(2, 1fr); */
     align-items: center;
     column-gap: 4rem;
   }
@@ -1660,3 +1645,14 @@ a {
   background-color: var(--scroll-thumb-color);
   border-radius: 0.5rem;
 }
+
+@media only screen and (max-width: 600px) {
+  #earphone-img {
+      display: none;
+  }
+  #earphone-text{
+  display: none;
+  }
+}
+
+

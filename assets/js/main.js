@@ -251,13 +251,13 @@ function toggleSound() {
     if (audio.paused) {
         audio.play();
         earphoneImg.src = 'assets/img/favicon/Pk_files/on_earphone.svg';
-        earphoneText.textContent = 'Sound On';
+        earphoneText.textContent = 'sound off';
         earphoneTooltip.textContent = ' sound off';
     } else {
         audio.pause();
         audio.currentTime = 0; // Reset audio to the beginning
         earphoneImg.src = 'assets/img/favicon/Pk_files/earphone sound off.svg';
-        earphoneText.textContent = 'Sound Off';
+        earphoneText.textContent = 'sound off';
         earphoneTooltip.textContent = ' sound on';
     }
 }
