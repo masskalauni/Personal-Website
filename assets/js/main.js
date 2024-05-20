@@ -316,8 +316,7 @@ const messageContent = document.getElementById("message");
 function sendEmail(fullName, email, messageContent) {
     Email.send({
         Host: "smtp.elasticemail.com",
-        Username: "premkalauni4777@gmail.com",
-        Password: "0E00AF6F5355247073016DD17B9DCD76F1E0",
+        SecureToken:"42be6738-db12-42a9-9ace-71a8ea88ef0a" ,
         To: 'premkalauni4777@gmail.com',
         From: "premkalauni4777@gmail.com",
         Subject: `New message from ${fullName}`,
