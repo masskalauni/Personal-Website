@@ -695,7 +695,7 @@
                             Popular nepali news website clone Frontend as well as backend.
                         </p>
                         <br>
-                        <a href="https://greenpeaceletang.com/" target="_blank" class="work__button">
+                        <a href="https://masskalauni.github.io/Onlinekhabar/" target="_blank" class="work__button">
                            Explore <i class="bx bx-right-arrow-alt work__icon"></i>
                         </a>
                     </div>
@@ -750,28 +750,29 @@
                 <div class="contact__content">
                     <h3 class="contact__title">Write me about your project</h3>
 
-                    <form class="contact__form" data-netlify="true" name="contactForm">
+                    <form class="contact__form" data-netlify="true" name="contactForm" action="#">
                         <div class="contact__form-div">
                             <label for="name" class="contact__form-tag">Full Name</label>
                             <input type="text" placeholder="Insert your name" class="contact__form-input" id="name"
-                                name="name" autocomplete="name">
+                                name="name" autocomplete="name" required>
                         </div>
 
                         <div class="contact__form-div">
                             <label for="email" class="contact__form-tag">Email</label>
                             <input type="email" placeholder="Insert your email" class="contact__form-input" id="email"
-                                name="email" autocomplete="email">
+                                name="email" autocomplete="email" required>
                         </div>
 
                         <div class="contact__form-div contact__form-area">
                             <label for="message" class="contact__form-tag">Message</label>
                             <textarea placeholder="Describe your project" class="contact__form-input" id="message"
-                                name="message" cols="30" rows="10"></textarea>
+                                name="message" cols="30" rows="10" required></textarea>
                         </div>
-
+                        
                         <button type="submit" class="button">Send Message</button>
 
                     </form>
+                    
                 </div>
             </div>
         </section>
@@ -843,9 +844,11 @@
     <script src="assets/js/main.js"></script>
     <!-- ---fontawesome----- -->
     <script src="https://kit.fontawesome.com/9b634c15bd.js" crossorigin="anonymous"></script>
-    <script>
-      
-    </script>
+    <!-- ================smtp js========== -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
     
 </body>
 

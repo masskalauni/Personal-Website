@@ -307,3 +307,73 @@ function speakText(text) {
     utterance.text = text;
     speechSynthesis.speak(utterance);
 }
+
+const form = document.querySelector("form");
+const fullName = document.getElementById("name");
+const email = document.getElementById("email");
+const messageContent = document.getElementById("message");
+
+function sendEmail(fullName, email, messageContent) {
+    Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "premkalauni4777@gmail.com",
+        Password: "0E00AF6F5355247073016DD17B9DCD76F1E0",
+        To: 'premkalauni4777@gmail.com',
+        From: "premkalauni4777@gmail.com",
+        Subject: `New message from ${fullName}`,
+        Body: `
+            <div style="font-family: Arial, sans-serif; color: #333;">
+                <h2 style="color: #4CAF50;">New Contact Form Message</h2>
+                <p><strong>Name:</strong> ${fullName}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Message:</strong></p>
+                <p style="background-color: #f9f9f9; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    ${messageContent}
+                </p>
+            </div>
+        `
+    }).then(
+      () => {
+          // Create a success message element
+          const successMessage = document.createElement('div');
+          successMessage.textContent = "Your email has been sent successfully!";
+          successMessage.style.position = 'fixed';
+          successMessage.style.top = '50%';
+          successMessage.style.left = '50%';
+          successMessage.style.transform = 'translate(-50%, -50%)';
+          successMessage.style.color = 'blue';
+
+          successMessage.style.zIndex = '1000';
+          successMessage.style.maxWidth = '90%';
+          successMessage.style.boxSizing = 'border-box';
+          document.body.appendChild(successMessage);
+
+          // Trigger confetti effect
+          confetti({
+              particleCount: 100,
+              spread: 70,
+              origin: { y: 0.6 }
+          });
+
+          // Remove the success message after 3 seconds
+          setTimeout(() => {
+              document.body.removeChild(successMessage);
+          }, 1000);
+      }
+    ).catch(
+      error => alert("There was an error sending your email: " + error)
+    );
+}
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const fullNameValue = fullName.value.trim();
+    const emailValue = email.value.trim();
+    const messageValue = message.value.trim();
+
+    if (fullNameValue && emailValue && messageValue) {
+        sendEmail(fullNameValue, emailValue, messageValue);
+    } else {
+        alert("Please fill in all fields before submitting.");
+    }
+});
