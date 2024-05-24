@@ -377,3 +377,4 @@ form.addEventListener("submit", (e) => {
         alert("Please fill in all fields before submitting.");
     }
 });
+
