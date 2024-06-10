@@ -87,7 +87,7 @@ textarea {
 
 .app__earphone {
   position: fixed;
-  right: -.5rem;
+  left: -.5rem;
   bottom: .5rem;
   z-index: 9999;
   background-color: transparent;
