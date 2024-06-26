@@ -174,7 +174,7 @@ sr.reveal(".footer__social-link", {delay: 100, duration: 300, interval: 30, dist
 sr.reveal(".footer__copy", {origin: "bottom", delay: 100, duration: 300, distance: "15px"})
 
 /*=============== TITLE CHANGE ANIMATION ===============*/
-const headerTexts = [ "Frontend Developer", "Backend Developer", "Content Creator"];
+const headerTexts = [ "Frontend Developer", "Content Creator","Data Scientist","Machine Learning Engineer","AI Developer"];
 const headerElement = document.getElementById("dynamic-header");
 
 let currentIndex = 0;
